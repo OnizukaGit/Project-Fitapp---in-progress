@@ -1,0 +1,58 @@
+{% load static %}
+
+<html>
+
+{% load static %}
+{#        <head>#}
+{#            <title>Kalkulator kalorii</title>#}
+{#            <meta charset="utf-8">#}
+{##}
+{#            <link rel="stylesheet" href="{% static '/fonts/icomoon/style.css'%}">#}
+{#            <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">#}
+{#            <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">#}
+{#            <link rel="stylesheet" href="{% static 'css/style.css' %}">#}
+{#    </head>#}
+<body>
+
+                    </div>
+                </div>
+              </div>{% if user.is_authenticated %}
+                    Witaj {{ user }}<a href="{% url 'logout' %}"> Wyloguj się</a>
+                    {% else %}
+
+                    <a href="{% url 'login' %}">Zaloguj się</a>
+                    <a href="{% url 'register' %}">Zarejestruj się</a>
+                    {% endif %}
+                    <center>
+                        <h1><a href="{% url 'monday' %}"> Poniedziałek </a>
+                            <a href="{% url 'tuesday' %}"> Wtorek</a>
+                            <a href="{% url 'wednesday' %}">Środa</a>
+                            <a href="{% url 'thursday' %}">Czwartek</a>
+                            <a href="{% url 'friday' %}">Piątek</a>
+                            <a href="{% url 'saturday' %}">Sobota</a>
+                            <a href="{% url 'sunday' %}">Niedziela</a></h1>
+</center>
+<center>
+    <br>
+    Dodaj Składnik: <a href="{% url "add-ingredients" %}">Dodaj</a>
+<br>
+    Dodaj Posiłek: <a href="{% url "add-meal" %}">Dodaj</a>
+<br>
+    Dodaj posiłek do dnia: <a href="{% url "add-a-meal-to-the-day" %}">Dodaj</a>
+
+</center>
+
+{##}
+{#    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>#}
+{#    <script src="{% static 'js/owl.carousel.min.js' %}"></script>#}
+{#    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>#}
+{#    <script src="{% static 'js/aos.js' %}"></script>#}
+{#    <script src="{% static 'js/main.js' %}"></script>#}
+
+
+
+</body>
+
+</html>
+
+{% block content %} {% endblock %}

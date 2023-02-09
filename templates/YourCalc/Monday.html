@@ -1,0 +1,111 @@
+{% extends 'YourCalc/base.html' %} {% block content %} {% load static %}
+{% if user.is_authenticated %}
+   <div class="site-section">
+            <div class="col-md-12 text-center">
+              <h2 class="site-section-heading text-center font-secondary">Poniedziałek</h2>
+            </div>
+
+
+              <div class="owl-carousel-2 owl-carousel">
+                <div class="d-block block-testimony mx-auto text-center">
+                  <div class="person w-25 mx-auto mb-4">
+
+                  </div>
+                  <div>
+                    <table border="3" cellpadding="10" cellspacing="0">
+                        <thead>
+                          <colgroup>
+                            <col width="60%" />
+                            <col width="20%" />
+                            <col width="20%" span="1" style="background-color:#f1f1f1;" />
+                          </colgroup>
+                          <tr>
+                            <th align="left" class="col-item-name">Śniadanie</th>
+                            <th align="center" class="col-quantity">Ilość</th>
+                            <th align="center" class="col-kcal">Kcal</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                       {% for i in brekfast %}
+                          <tr>
+                            <td>{{ i.meal.name }}</td>
+                            <td align="center">{{ i.meal.quantity }}</td>
+                            <td align="center">test gramme ---> {{i.meal.result}}</td>
+                          </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                          <td class="kcal_txt" scope="col" colspan="3">Suma:</td>
+                        </tfoot>
+                      </table>                  </div>
+                </div>
+                <div class="d-block block-testimony mx-auto text-center">
+                  <div class="person w-25 mx-auto mb-4">
+                  </div>
+
+                  <div>
+                    <table border="3" cellpadding="10" cellspacing="0">
+                        <thead>
+                          <colgroup>
+                            <col width="60%" />
+                            <col width="20%" />
+                            <col width="20%" span="1" style="background-color:#f1f1f1;" />
+                          </colgroup>
+                          <tr>
+                            <th align="left" class="col-item-name">Obiad</th>
+                            <th align="center" class="col-quantity">Ilość</th>
+                            <th align="center" class="col-kcal">Kcal</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>{% for i in lunch %}
+                            <td>{{ i.meal }}</td>
+                            <td align="center">{{ i.meal.quantity }}</td>
+                            <td align="center">kcal</td>
+                          </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                          <td class="kcal_txt" scope="col" colspan="3">Suma:</td>
+                        </tfoot>
+                      </table>                  </div>
+                </div>
+
+                <div class="d-block block-testimony mx-auto text-center">
+                  <div class="person w-25 mx-auto mb-4">
+
+                  </div>
+                  <div>
+
+                    <table border="3" cellpadding="10" cellspacing="0">
+                        <thead>
+                          <colgroup>
+                            <col width="60%" />
+                            <col width="20%" />
+                            <col width="20%" span="1" style="background-color:#f1f1f1;" />
+                          </colgroup>
+                          <tr>
+
+                            <th align="left" class="col-item-name">Kolacja</th>
+                            <th align="center" class="col-quantity">Ilość</th>
+                            <th align="center" class="col-kcal">Kcal</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in dinner  %}
+                          <tr>
+                            <td><a href="{% url "meals" i.meal.ingredients %}">{{ i.meal }}</a></td>
+                            <td align="center">{{ i.meal.quantity }}</td>
+                            <td align="center">Kcal</td>
+                          </tr>
+                              {% endfor %}
+                        </tbody>
+                        <tfoot>
+                          <td class="kcal_txt" scope="col" colspan="3">Suma:</td>
+                        </tfoot>
+                      </table>                  </div>
+                </div>
+
+
+{% endif %}
+{% endblock %}
